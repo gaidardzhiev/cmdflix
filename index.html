@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Netflix Controller</title>
+<style>
+    body {
+        background-color: #000;
+        color: #0f0;
+        font-family: 'Courier New', Courier, monospace;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+        user-select: none;
+    }
+    h1 {
+        text-shadow: 0 0 10px #0f0, 0 0 20px #0f0;
+        margin-bottom: 40px;
+        letter-spacing: 2px;
+    }
+    .button-container {
+        display: grid;
+        grid-template-columns: repeat(2, 140px);
+        grid-template-rows: repeat(2, 60px);
+        gap: 30px 60px;
+    }
+    button {
+        background-color: transparent;
+        border: 2px solid #0f0;
+        color: #0f0;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+        border-radius: 10px;
+        transition: background-color 0.3s, box-shadow 0.3s;
+        box-shadow: 0 0 10px #0f0;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        user-select: none;
+    }
+    button:hover {
+        background-color: #0f0;
+        color: #000;
+        box-shadow: 0 0 20px #0f0, 0 0 40px #0f0;
+    }
+    .status {
+        margin-top: 40px;
+        font-size: 16px;
+        min-height: 24px;
+        font-family: monospace;
+        text-shadow: 0 0 5px #0f0;
+    }
+</style>
+</head>
+<body>
+    <h1>Netflix Controller</h1>
+    <div class="button-container">
+        <button id="playpause">Play / Pause</button>
+        <button id="next">Next Track</button>
+        <button id="volumeUp">Volume Up</button>
+        <button id="volumeDown">Volume Down</button>
+    </div>
+    <div class="status" id="status"></div>
+
+<script>
+    const statusEl = document.getElementById('status');
+
+    async function sendCommand(cmd) {
+        statusEl.textContent = `Sending ${cmd.replace(/_/g, ' ')}...`;
+        try {
+            const response = await fetch(`/cmd?cmd=${cmd}`);
+            if (response.ok) {
+                const text = await response.text();
+                statusEl.textContent = text;
+            } else {
+                statusEl.textContent = `Error: ${response.status}`;
+            }
+        } catch (error) {
+            statusEl.textContent = 'Request failed';
+        }
+    }
+
+    document.getElementById('playpause').addEventListener('click', () => {
+        sendCommand('brave_playpause');
+    });
+
+    document.getElementById('next').addEventListener('click', () => {
+        sendCommand('brave_netflix_next');
+    });
+
+    document.getElementById('volumeUp').addEventListener('click', () => {
+        sendCommand('volume_up');
+    });
+
+    document.getElementById('volumeDown').addEventListener('click', () => {
+        sendCommand('volume_down');
+    });
+</script>
+</body>
+</html>
