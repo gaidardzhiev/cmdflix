@@ -66,6 +66,7 @@
         <button id="next">Next Track</button>
         <button id="volumeUp">Volume Up</button>
         <button id="volumeDown">Volume Down</button>
+	<button id="focus">Focus</button>
     </div>
     <div class="status" id="status"></div>
 
@@ -86,6 +87,10 @@
             statusEl.textContent = 'Request failed';
         }
     }
+
+    document.getElementById('focus').addEventListener('click', () => {
+        sendCommand('brave_focus');
+    });
 
     document.getElementById('playpause').addEventListener('click', () => {
         sendCommand('brave_playpause');
