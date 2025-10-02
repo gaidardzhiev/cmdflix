@@ -161,4 +161,8 @@ This project is provided under the GPL3 License.
 
 ---
 
+## User Interface:
+
 ![UI Screenshot](https://github.com/user-attachments/assets/fc8ea942-7b66-4cd6-94fd-2e08cfbc08a8)
+
+---
