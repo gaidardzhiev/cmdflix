@@ -32,7 +32,7 @@ CmdFlix is a lightweight remote control server written in C for controlling Netf
   - Adjust macOS system volume up/down by 5 units
 
 - **Response Handling:** Returns HTTP 200 OK responses with success or error messages in HTML.
-- **Static Serving:** Serves `index.html` for root requests if present.
+- **Static Serving:** Serves `index.html` for requests.
 
 ---
 
