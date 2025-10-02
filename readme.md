@@ -154,3 +154,9 @@ If you distribute, modify, or publicly display this software, please ensure that
 By using this software, you agree to respect all trademark rights of the respective owners and acknowledge that this project’s author bears no responsibility for any trademark infringement claims or disputes that arise from improper use of these trademarks.
 
 ---
+
+## License
+
+This project is provided under the GPL3 License.
+
+---
