@@ -46,6 +46,10 @@ Run with:
 
 `./cmdflix`
 
+Go to:
+
+`localhost:30303`
+
 ---
 
 ### Usage
@@ -88,7 +92,7 @@ Only predefined commands are accepted, preventing arbitrary command execution. A
 
 ##  index.html
 
-This is the simple web interface designed to control the Netflix playback remotely through CmdFlix server. It communicates by sending HTTP GET requests with commands, providing a user friendly visual control panel.
+This is the simple web interface designed to control the Netflix playback remotely through `cmdflix` server. It communicates by sending HTTP GET requests with commands, providing a user friendly visual control panel.
 
 ---
 
@@ -128,9 +132,9 @@ This is the simple web interface designed to control the Netflix playback remote
 
 ### How It Works Together
 
-- The HTML front end presents an easy to use controller interface compatible with CmdFlix's command set.
-- Users interact by clicking buttons; JavaScript sends the mapped commands over HTTP to the CmdFlix server.
-- CmdFlix executes those commands on macOS to control Brave browser and volume as requested.
-- Feedback from CmdFlix is shown live to the user, giving clear and instant confirmation or error messages.
+- The HTML front end presents an easy to use controller interface compatible with `cmdflix` command set.
+- Users interact by clicking buttons; JavaScript sends the mapped commands over HTTP to the `cmdflix` server.
+- `cmdflix` executes those commands on `macOS` to control Brave browser and volume as requested.
+- Feedback from `cmdflix` is shown live to the user, giving clear and instant confirmation or error messages.
 
 ---
