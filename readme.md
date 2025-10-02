@@ -85,3 +85,52 @@ Only predefined commands are accepted, preventing arbitrary command execution. A
 | `volume_down`       | Decreases system volume by 5 (min 0)                |
 
 ---
+
+##  index.html
+
+This is the simple web interface designed to control the Netflix playback remotely through CmdFlix server. It communicates by sending HTTP GET requests with commands, providing a user friendly visual control panel.
+
+---
+
+### Layout and Styling
+
+- The page uses a minimalist, style reminiscent of old terminal screens: black background with glowing green text and borders.
+- The entire content is centered vertically and horizontally using flexbox for easy viewing on any screen size.
+- Buttons are arranged in a neat 2x3 grid with spacing to separate control functions visually.
+- Each button has a transparent background with green borders and text that glow and invert colors on hover for clear interactivity cues.
+- The font uses monospace `'Courier New'`, which complements the terminal aesthetic.
+- A status text area below the buttons displays feedback messages about the command sent and the server response.
+
+---
+
+### Controls and Interaction
+
+- Five main buttons are provided:
+  - Play / Pause
+  - Next Track
+  - Volume Up
+  - Volume Down
+  - Focus (to bring Brave browser to front)
+- Each button has an `id` and a click event listener attached via JavaScript.
+
+---
+
+### JavaScript Functionality
+
+- The `sendCommand(cmd)` function sends an asynchronous HTTP GET request to `/cmd?cmd=COMMAND` on the server for the given command.
+- On clicking a button, the corresponding command string is passed to `sendCommand`.
+- While the request is in progress, a status message shows "Sending [command]...".
+- When the server responds:
+  - If successful (HTTP 200), the returned response text is shown in the status area. 
+  - If there's an error (non-200 status or request failure), an error message is displayed.
+
+---
+
+### How It Works Together
+
+- The HTML front end presents an easy to use controller interface compatible with CmdFlix's command set.
+- Users interact by clicking buttons; JavaScript sends the mapped commands over HTTP to the CmdFlix server.
+- CmdFlix executes those commands on macOS to control Brave browser and volume as requested.
+- Feedback from CmdFlix is shown live to the user, giving clear and instant confirmation or error messages.
+
+---
