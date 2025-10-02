@@ -9,6 +9,9 @@
 #include <unistd.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
+#include <arpa/inet.h>
+#include <ifaddrs.h>
+#include <net/if.h>
 #include <ctype.h>
 
 #define PORT 30303
@@ -71,6 +74,29 @@ const char *get_apple_script_command(const char *cmd) {
 	return NULL;
 }
 
+const char *lan_ip_address(void) {
+	static char ip[INET_ADDRSTRLEN];
+	struct ifaddrs *ifaddr = NULL;
+	if (getifaddrs(&ifaddr) == -1) {
+		return NULL;
+	}
+	for (struct ifaddrs *ifa = ifaddr; ifa != NULL; ifa = ifa->ifa_next) {
+		if (!ifa->ifa_addr || !(ifa->ifa_flags & IFF_UP)) {
+			continue;
+		}
+		if (ifa->ifa_addr->sa_family == AF_INET && !(ifa->ifa_flags & IFF_LOOPBACK)) {
+			struct sockaddr_in *sa = (struct sockaddr_in *)ifa->ifa_addr;
+			if (!inet_ntop(AF_INET, &sa->sin_addr, ip, sizeof(ip))) {
+				ip[0] = '\0';
+				break;
+			}
+			break;
+		}
+	}
+	freeifaddrs(ifaddr);
+	return ip[0] ? ip : NULL;
+}
+
 int main() {
 	struct sockaddr_in server_addr;
 	int server_sock, client_sock;
@@ -89,7 +115,12 @@ int main() {
 		exit(1);
 	}
 	listen(server_sock, 1);
-	printf("go to: \n\t<local-network-ip>:<%d>\n", PORT);
+	const char *ip = lan_ip_address();
+	if (ip) {
+		printf("go to: %s:%d\n", ip, PORT);
+	} else {
+		printf("go to: <local-network-ip>:%d\n", PORT);
+	}
 	while (1) {
 		client_sock = accept(server_sock, NULL, NULL);
 		if (client_sock < 0) {
