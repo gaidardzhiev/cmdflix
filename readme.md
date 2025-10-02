@@ -6,33 +6,33 @@ CmdFlix is a lightweight remote control server written in C for controlling Netf
 
 ### Features
 
-- Activate or launch Brave Browser  
-- Play/Pause Netflix playback via space keypress  
-- Trigger Netflix "Next Episode" button click via JavaScript injection  
-- Adjust system volume up or down in increments of 5 units  
-- Simple HTTP server interface on port 30303  
+- Activate or launch Brave Browser
+- Play/Pause Netflix playback via space keypress
+- Trigger Netflix "Next Episode" button click via JavaScript injection
+- Adjust system volume up or down in increments of 5 units
+- Simple HTTP server interface on port 30303
 
 ---
 
 ### How It Works (Low-Level Details)
 
-- **Networking:** Uses POSIX sockets to create a TCP server listening on port 30303. It accepts connections and reads HTTP GET requests.  
-- **HTTP Parsing:** The server parses incoming request strings for the pattern `/cmd?cmd=COMMAND`, extracting the requested command.  
-- **Command Validation:** Commands are validated against a white-list of allowed commands:  
-  - brave_focus  
-  - brave_playpause  
-  - brave_netflix_next  
-  - volume_up  
-  - volume_down  
-- **URL Decoding:** The GET parameters are URL-decoded to support special characters.  
-- **AppleScript Integration:** For valid commands, a corresponding AppleScript string is generated and executed via popen():  
-  - Focus or launch Brave Browser  
-  - Send space key to toggle play/pause  
-  - Use JavaScript to click Netflix's next episode button  
-  - Adjust macOS system volume up/down by 5 units  
+- **Networking:** Uses POSIX sockets to create a TCP server listening on port 30303. It accepts connections and reads HTTP GET requests.
+- **HTTP Parsing:** The server parses incoming request strings for the pattern `/cmd?cmd=COMMAND`, extracting the requested command.
+- **Command Validation:** Commands are validated against a white-list of allowed commands:
+  - `brave_focus`
+  - `brave_playpause`
+  - `brave_netflix_next`
+  - `volume_up`
+  - `volume_down`
+- **URL Decoding:** The GET parameters are URL decoded to support special characters.
+- **AppleScript Integration:** For valid commands, a corresponding AppleScript string is generated and executed via popen():
+  - Focus or launch Brave Browser
+  - Send space key to toggle play/pause
+  - Use JavaScript to click Netflix's next episode button
+  - Adjust macOS system volume up/down by 5 units
 
-- **Response Handling:** Returns HTTP 200 OK responses with success or error messages in HTML.  
-- **Static Serving:** Serves `index.html` for root requests if present.  
+- **Response Handling:** Returns HTTP 200 OK responses with success or error messages in HTML.
+- **Static Serving:** Serves `index.html` for root requests if present.
 
 ---
 
@@ -52,11 +52,11 @@ Run with:
 
 Send HTTP GET requests to control Netflix remotely:
 
-- Focus Brave Browser: `http://localhost:30303/cmd?cmd=brave_focus`  
-- Play/Pause: `http://localhost:30303/cmd?cmd=brave_playpause`  
-- Next Episode: `http://localhost:30303/cmd?cmd=brave_netflix_next`  
-- Volume Up: `http://localhost:30303/cmd?cmd=volume_up`  
-- Volume Down: `http://localhost:30303/cmd?cmd=volume_down`  
+- Focus Brave Browser: `http://localhost:30303/cmd?cmd=brave_focus`
+- Play/Pause: `http://localhost:30303/cmd?cmd=brave_playpause`
+- Next Episode: `http://localhost:30303/cmd?cmd=brave_netflix_next`
+- Volume Up: `http://localhost:30303/cmd?cmd=volume_up`
+- Volume Down: `http://localhost:30303/cmd?cmd=volume_down`
 
 ---
 
@@ -68,9 +68,9 @@ Only predefined commands are accepted, preventing arbitrary command execution. A
 
 ### Dependencies
 
-- macOS with Brave Browser installed  
-- Standard C libraries and network/socket support  
-- AppleScript (`osascript` command)  
+- macOS with Brave Browser installed
+- Standard C libraries and network/socket support
+- AppleScript (`osascript`)
 
 ---
 
