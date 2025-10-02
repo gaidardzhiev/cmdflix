@@ -117,9 +117,9 @@ int main() {
 	listen(server_sock, 1);
 	const char *ip = lan_ip_address();
 	if (ip) {
-		printf("go to: %s:%d\n", ip, PORT);
+		printf("Connect to the CmdFlix command and control server at: %s:%d\n", ip, PORT);
 	} else {
-		printf("go to: <local-network-ip>:%d\n", PORT);
+		printf("Connect to the CmdFlix command and control server at: <ip>:%d\n", PORT);
 	}
 	while (1) {
 		client_sock = accept(server_sock, NULL, NULL);
