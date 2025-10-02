@@ -14,7 +14,7 @@ CmdFlix is a lightweight remote control server written in C for controlling Netf
 
 ---
 
-### How It Works (Low-Level Details)
+### How It Works
 
 - **Networking:** Uses POSIX sockets to create a TCP server listening on port 30303. It accepts connections and reads HTTP GET requests.
 - **HTTP Parsing:** The server parses incoming request strings for the pattern `/cmd?cmd=COMMAND`, extracting the requested command.
