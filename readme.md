@@ -139,6 +139,14 @@ This is the simple web interface designed to control the Netflix playback remote
 
 ---
 
+## For an enhanced experience, please explore this project:
+
+```
+https://github.com/YYx00xZZ/binge-watch-me
+```
+
+---
+
 ## Trademark Disclaimer
 
 This software project, CmdFlix, makes reference to certain trademarks which are the property of their respective owners. Specifically, "Netflix," "macOS," and "Brave" are registered trademarks or service marks belonging to their respective companies and entities.
