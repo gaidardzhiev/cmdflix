@@ -4,6 +4,14 @@ CmdFlix is a lightweight remote control server written in C for controlling Netf
 
 ---
 
+## For a more advanced and refined solution, consider exploring this project:
+
+```
+https://github.com/YYx00xZZ/binge-watch-me
+```
+
+---
+
 ### Features
 
 - Activate or launch Brave Browser
@@ -136,14 +144,6 @@ This is the simple web interface designed to control the Netflix playback remote
 - Users interact by clicking buttons; JavaScript sends the mapped commands over HTTP to the `cmdflix` server.
 - `cmdflix` executes those commands on `macOS` to control Brave browser and volume as requested.
 - Feedback from `cmdflix` is shown live to the user, giving clear and instant confirmation or error messages.
-
----
-
-## For an enhanced experience, please explore this project:
-
-```
-https://github.com/YYx00xZZ/binge-watch-me
-```
 
 ---
 
