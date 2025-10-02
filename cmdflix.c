@@ -89,7 +89,7 @@ int main() {
 		exit(1);
 	}
 	listen(server_sock, 1);
-	printf("go to localhost:%d...\n", PORT);
+	printf("go to: \n\t<local-network-ip>:<%d>...\n", PORT);
 	while (1) {
 		client_sock = accept(server_sock, NULL, NULL);
 		if (client_sock < 0) {
