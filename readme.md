@@ -138,3 +138,19 @@ This is the simple web interface designed to control the Netflix playback remote
 - Feedback from `cmdflix` is shown live to the user, giving clear and instant confirmation or error messages.
 
 ---
+
+## Trademark Disclaimer
+
+This software project, CmdFlix, makes reference to certain trademarks which are the property of their respective owners. Specifically, "Netflix," "macOS," and "Brave" are registered trademarks or service marks belonging to their respective companies and entities.
+
+This project is an independent and unofficial tool developed for educational and personal use only. It is **not affiliated with, endorsed by, sponsored by, or in any way officially connected to Netflix, Apple Inc. (macOS), or Brave Software**. Any use of these trademarks is solely for the purpose of describing compatibility and integration with their respective products and platforms.
+
+The trademarks, and brand names referenced here are used purely for descriptive purposes to identify the platforms and services the software interacts with, and do not imply any partnership, collaboration, or approval by the trademark owners.
+
+Users and distributors of this software are expressly reminded that the legal rights over these trademarks belong solely to the trademark holders. This project does not claim ownership, permission, or any rights to use the trademarks beyond what is permitted under applicable trademark law, including nominative fair use.
+
+If you distribute, modify, or publicly display this software, please ensure that all trademark references clearly maintain these disclaimers and are not used in ways that might mislead others into believing there is a commercial relationship or endorsement.
+
+By using this software, you agree to respect all trademark rights of the respective owners and acknowledge that this project’s author bears no responsibility for any trademark infringement claims or disputes that arise from improper use of these trademarks.
+
+---
