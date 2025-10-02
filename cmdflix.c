@@ -1,3 +1,8 @@
+/*
+ * Copyright (C) 2025 Alexander Parvanov and Ivan Gaydardzhiev
+ * Licensed under the GPL-3.0-only
+ */
+
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
