@@ -1,4 +1,5 @@
-# Copyright (C) 2025 Alexander Parvanov and Ivan Gaydardzhiev; Licensed under the GPL-3.0-only
+# Copyright (C) 2025 Alexander Parvanov and Ivan Gaydardzhiev
+# Licensed under the GPL-3.0-only
 
 CC=gcc
 BIN=cmdflix
