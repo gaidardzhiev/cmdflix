@@ -59,21 +59,6 @@ void url_decode(char *dst, const char *src) {
 	*dst = '\0';
 }
 
-/*const char *get_apple_script_command(const char *cmd) {
-	if (strcmp(cmd, "brave_focus") == 0) {
-		return "osascript -e 'tell application \"System Events\" to if (name of processes) contains \"Brave Browser\" then tell application \"Brave Browser\" to activate else tell application \"Brave Browser\" to launch delay 1 tell application \"Brave Browser\" to activate end if end tell'";
-	} else if (strcmp(cmd, "brave_playpause") == 0) {
-		return "osascript -e 'tell application \"System Events\" to keystroke space' -e 'tell application \"Brave Browser\" to activate'";
-	} else if (strcmp(cmd, "brave_netflix_next") == 0) {
-		return "osascript -e 'tell application \"Brave Browser\" to activate' -e 'tell application \"Brave Browser\" to tell front window to tell active tab to do JavaScript \"var nextBtn = document.querySelector(\\\"button[data-uia=\\\\\\\"control-next\\\\\\\"]\\\"); if(nextBtn) { nextBtn.click(); }\"'";
-	} else if (strcmp(cmd, "volume_up") == 0) {
-		return "osascript -e 'set currentVolume to output volume of (get volume settings)' -e 'if currentVolume < 100 then set volume output volume (currentVolume + 5) end if'";
-	} else if (strcmp(cmd, "volume_down") == 0) {
-		return "osascript -e 'set currentVolume to output volume of (get volume settings)' -e 'if currentVolume > 0 then set volume output volume (currentVolume - 5) end if'";
-	}
-	return NULL;
-}*/
-
 const char *get_apple_script_command(const char *cmd) {
 	if (strcmp(cmd, "brave_focus") == 0) {
 		return "osascript -e 'tell application \"System Events\" to if (name of processes) contains \"Brave Browser\" then tell application \"Brave Browser\" to activate else tell application \"Brave Browser\" to launch delay 1 tell application \"Brave Browser\" to activate end if'";
